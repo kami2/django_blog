@@ -32,3 +32,4 @@ blogb/__pycache__/
 mysite/__pycache__/
 desktop.ini
 db.sqlite3
+/django_blog/
