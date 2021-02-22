@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<!--
+	Future Imperfect by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	{% include 'blogb/head.html' %}
+	{% autoescape off %}
+
+	<body class="single is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					{% include 'blogb/header.html' %}
+
+				<!-- Menu -->
+
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<article class="post">
+								<header>
+									<div class="title">
+										<h2><a href="#">{{ content.title }}</a></h2>
+										<p>{{ content.title_short }}</p>
+									</div>
+									<div class="meta">
+										<time class="published">{{ content.pub_date }}</time>
+										<a href="#" class="author"><span class="name">{{ content.author }}</span><img src="{{ author.avatar.url }}" alt="" /></a>
+									</div>
+								</header>
+								<span class="image featured"><img src="{{ content.photo_text.url }}" alt="" /></span>
+								<ul>{{ content.content_text }}</ul>
+								<footer>
+									<ul class="stats">
+										{% for cat in content.category.all %}
+										<li><a href="#">{{ cat }}</a></li>
+										{% endfor %}
+									</ul>
+								</footer>
+							</article>
+
+					</div>
+
+				<!-- Footer -->
+					<section id="footer">
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+						<p class="copyright">&copy; Untitled. Design: <a href="http://html5up.net">HTML5 UP</a>. Images: <a href="http://unsplash.com">Unsplash</a>.</p>
+					</section>
+
+			</div>
+	{% endautoescape %}
+		<!-- Scripts -->
+			{% include 'blogb/scripts.html' %}
+
+	</body>
+</html>

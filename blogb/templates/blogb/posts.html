@@ -1,0 +1,31 @@
+{% load static %}
+	                    {% if latest_records_list %}
+							{% for content in latest_records_list %}
+							<article class="post">
+								<header>
+									<div class="title">
+										<h2><a href="{% url 'single' content.id %}">{{ content.title }}</a></h2>
+
+
+										<p>{{ content.title_short }}</p>
+									</div>
+									<div class="meta">
+										<time class="published">{{ content.pub_date }}</time>
+										<a href="#" class="author"><span class="name">{{ content.author }}</span><img src="{{ author.avatar.url }}" alt="" /></a>
+									</div>
+								</header>
+								<a href="{% url 'single' content.id %}" class="image featured"><img src="{{ content.photo_text.url }}" alt="" /></a>
+								<p>{{ content.content_text|truncatewords:50 }}</p>
+								<footer>
+									<ul class="actions">
+										<li><a href="{% url 'single' content.id %}" class="button large">Continue Reading</a></li>
+									</ul>
+									<ul class="stats">
+										{% for cat in content.category.all %}
+										<li><a href="#">{{ cat }}</a></li>
+										{% endfor %}
+									</ul>
+								</footer>
+							</article>
+							{% endfor %}
+						{% endif %}

@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<!--
+	Future Imperfect by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	{% include 'blogb/head.html' %}
+	{% autoescape off %}
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					{% include 'blogb/header.html' %}
+
+				<!-- Menu -->
+
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+						{% include 'blogb/posts.html' %}
+						<!-- Post -->
+
+						<!-- Pagination -->
+							<ul class="actions pagination">
+								{% if latest_records_list.has_previous %}
+								<li><a href="?page={{ latest_records_list.previous_page_number }}" class="button large previous">Previous Page</a></li>
+								{% else %}
+								<li class="disabled button large">Previous Page</li>
+								{% endif %}
+								{% for i in latest_records_list.paginator.page_range %}
+								{% if latest_records_list.number == i %}
+								<ul><li class="button large">{{ i }}</li></ul>
+								{% endif %}
+								{% endfor %}
+								{% if latest_records_list.has_next %}
+								<li><a href="?page={{ latest_records_list.next_page_number }}" class="button large next">Next Page</a></li>
+								{% else %}
+								<ul><li class="disabled button large next">Next Page</li></ul>
+								{% endif %}
+							</ul>
+
+					</div>
+
+				<!-- Sidebar -->
+					<section id="sidebar">
+
+						<!-- Intro -->
+							<section id="intro">
+								<a href="#" class="logo"><img src="{{ blogset.logo.url }}" alt="" /></a>
+								<header>
+									<h2>{{ blogset.site_name }}</h2>
+									<p>{{ blogset.slogan }}</p>
+								</header>
+							</section>
+
+						<!-- Mini Posts -->
+							<section>
+								<div class="mini-posts">
+
+									<!-- Mini Post -->
+									{% if show_tech %}
+									{% for technow in show_tech %}
+										<article class="mini-post">
+											<header>
+												<h3>{{ technow.tech_name }}</h3>
+												<ul style="font-size: 0.8em">{{ technow.tech_description }}</ul>
+												<p><a href="{{ technow.tech_url }}">Learn More</a></p>
+											</header>
+											<img src="{{ technow.tech_img.url }}" alt="">
+										</article>
+									{% endfor %}
+									{% endif %}
+
+								</div>
+							</section>
+
+						<!-- Posts List -->
+
+
+						<!-- About -->
+							<section class="blurb">
+								<h2>About</h2>
+								<p>{{ author.about|truncatewords:16 }}</p>
+								<ul class="actions">
+									<li><a href="#" class="button">Learn More</a></li>
+								</ul>
+							</section>
+
+						<!-- Footer -->
+							<section id="footer">
+								<ul class="icons">
+									<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+								</ul>
+								<p class="copyright">&copy; Untitled. Design: <a href="http://html5up.net">HTML5 UP</a>. Images: <a href="http://unsplash.com">Unsplash</a>.</p>
+							</section>
+
+					</section>
+
+			</div>
+	{% endautoescape %}
+		<!-- Scripts -->
+			{% include 'blogb/scripts.html' %}
+
+	</body>
+</html>
