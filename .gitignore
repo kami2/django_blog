@@ -24,8 +24,7 @@
 *.gif
 *.png
 
-Pipfile
-Pipfile.lock
+
 mysite/__init__.py
 mysite/wsgi.py
 mysite/asgi.py
