@@ -25,17 +25,10 @@
 *.png
 
 
-mysite/__init__.py
-mysite/wsgi.py
-mysite/asgi.py
-polls/
+
 /templates/
-manage.py
-db.sqlite3
 blogb/static/images/*.png
-blogb/migrations/
-blogb/__init__.py
-blogb/tests.py
 blogb/__pycache__/
 mysite/__pycache__/
 desktop.ini
+db.sqlite3
