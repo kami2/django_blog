@@ -24,8 +24,6 @@
 *.gif
 *.png
 
-
-
 /templates/
 blogb/static/images/*.png
 blogb/__pycache__/
